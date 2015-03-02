@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Memory Testing</title>
+    <meta name="viewport content="width=device-width, initial-scale=1.0">
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/static/base.css" rel="stylesheet" media="screen">
+</head>
+
+<body>
+<div class = "container">
+    <div class = "row">
+        <div class ="col-md-6 col-md-offset-3 jumbotron">
+            <div class = "text-center">
+                <h1>                
+                    {% block header_text %}  {% endblock %}                
+                </h1>
+            </div>
+                <p id = "id_app_usage">
+                    <strong>Usage:</strong>  
+                    {% block usage_text %}
+                    {% endblock %} 
+                </p>
+                <p id = "id_app_usage2">
+                    {% block usage2_text %} {% endblock %} 
+                </p>
+                
+                <form method="POST" action="{% block form_action %} {% endblock %}">
+                    <input name="mem_load_text" id='id_new_mem' 
+                           class="form-control input-lg"
+                           placeholder='# of 400KB blocks'/>
+                    <input type="submit" value="Submit">
+                    {% csrf_token %}
+                </form>
+            
+        </div>
+    </div>
+    
+    <div class = "row">
+        <div class ="col-md-6 col-md-offset-3">
+            {%block table%}
+            {%endblock%}
+        </div>
+    </div>
+
+</div>
+</body>

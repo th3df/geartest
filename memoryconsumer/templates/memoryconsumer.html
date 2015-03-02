@@ -1,0 +1,13 @@
+{%extends "memcon_base.html"%}
+
+{% block header_text %} Memory consumption application {% endblock %} 
+
+{% block usage_text %} 
+Use this application to create memory allocation within the running python process.
+{% endblock %} 
+
+{% block usage2_text %} 
+Input the number of 400KB blocks to start a new test. Allocated memory will be Nx400KB
+{% endblock %}
+
+{% block form_action %} /memoryconsumer/exp_page/new {% endblock %}

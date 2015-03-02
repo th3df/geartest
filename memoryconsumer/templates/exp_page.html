@@ -1,0 +1,31 @@
+{%extends "memcon_base.html"%}
+
+{% block header_text %} Your memory consumption test {% endblock %} 
+
+{% block usage_text %} 
+Input the number of 400KB blocks. Allocated memory will be Nx400KB
+{% endblock %} 
+
+{% block usage2_text %} 
+Please bookmark this page so that you can come back to these test results.
+{% endblock %}
+
+{% block form_action %} /memoryconsumer/exp_page/{{ exp.id}}/add_memloadstat {% endblock %}
+
+{%block table%}
+    <center>
+    <table id="id_table_mem_stats" class="table">
+        <tr id="id_table_heading"> <th>GearID</th>
+                                   <th>Input (bytes)</th>     
+                                   <th>Available OS Memory</th>   
+                                   <th>Delta Available Memory</th> </tr>
+           {% for load in exp.memloadstat_set.all %}
+               <tr><td>{{load.gearID}}</td>
+               <td>{{load.memload}}</td>     
+               <td>{{load.availmem}}</td>    
+               <td>{{load.availdelta}}</td></tr>
+           {% endfor %}
+
+    </table>
+    </center>
+{%endblock%}

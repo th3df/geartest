@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Memory Testing</title>
+    <style>
+    table, th, td {
+        border: 2px solid black;
+    }
+    </style>
+</head>
+<body>
+    <h1> 
+        <center>Welcome to the memory consumption application</center>
+    </h1>
+    
+    <p id = "id_app_usage">
+        <strong>Usage:</strong> Use this application to create memory usage within the running python process. 
+                                <br>Input a memory load in Bytes to start a new test. Bookmark the resulting page for later access to results.
+    </p>
+    <form method="POST" action="/memoryconsumer/exp_page/new">
+    <input name="mem_load_text" id='id_new_mem' placeholder='Enter the number of 400KB list elements'/>
+    <input type="submit" value="Submit">
+    {% csrf_token %}
+    </form>
+</body>
+</html>
